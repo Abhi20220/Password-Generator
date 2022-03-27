@@ -55,6 +55,56 @@ function passwordConditions() {
 
   console.log(passwordLength);
 
+  //password criteria
+  if (lowercase) {
+    userLowerCase = "abcdefghijklmnopqrstuvwxyz";
+    passwordCriteriaReq += userLowerCase;
+    var firstString = "";
+    firstString +=
+      userLowerCase[Math.floor(Math.random() * userLowerCase.length)];
+      oneOfEachCharacter += firstString;
+  }
 
+  if (uppercase) {
+    userUpperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    passwordCriteriaReq += userUpperCase;
+    var secondString = "";
+    secondString +=
+      userUpperCase[Math.floor(Math.random() * userUpperCase.length)];
+
+      oneOfEachCharacter += secondString;
+  }
+
+  if (numbers) {
+    userNumbers = "0123456789";
+    passwordCriteriaReq += userNumbers;
+    var thirdString = "";
+    thirdString += userNumbers[Math.floor(Math.random() * userNumbers.length)];
+
+    oneOfEachCharacter += thirdString;
+  }
+
+  if (special) {
+    userSymbols = '!"#$%&()*+,-./:;<=>?@[]^_`{|}~';
+    passwordCriteriaReq += userSymbols;
+    var fourthString = "";
+    fourthString += userSymbols[Math.floor(Math.random() * userSymbols.length)];
+    oneOfEachCharacter += fourthString;
+  }
+  console.log(passwordCriteriaReq);
+  return passwordCriteriaReq;
+}
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+
+var lowercase;
+var uppercase;
+var numbers;
+var special;
+var minLength = 8;
+var maxLength = 128;
+var passwordLength;
+var passwordCriteriaReq= "";
+var oneOfEachCharacter = "";
+var finalPw = "";
+var output
