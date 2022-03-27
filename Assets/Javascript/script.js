@@ -128,3 +128,4 @@ var passwordCriteriaReq= "";
 var oneOfEachCharacter = "";
 var finalPw = "";
 var output
+
