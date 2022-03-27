@@ -10,12 +10,6 @@ function writePassword() {
 
 }
 
-//Asks the user to confirm which set of characters they want for their random password
-lowercase = confirm("Do you want lowercase characters 'a', 'b'...");
-uppercase = confirm("Do you want uppercase characters 'A', 'B'...");
-numbers = confirm("Do you want numbers '1', '2'...");
-special = confirm("Do you want special text '$', '&'...");
-
 
 //The below function collates the information that the user has input and it is stored within "password length"
 function initalInput() {
@@ -24,8 +18,8 @@ function initalInput() {
       "Choose your password length",
       "Minimum: 8  -  Maximum: 128"
     ),
-   
-  );
+    10
+);
 
 //The below function tells us that if a user chooses a letter instead of number they will get this alert
   console.log(passwordLength);
@@ -41,21 +35,25 @@ function initalInput() {
   return passwordLength;
 }
 
-
-// If the user does not select any criteria they will be alerted to choose at least one criteria
-if (!lowercase && !uppercase && !numbers && !special) {
-  alert("Please select at least ONE (1) of the criteria to generate a password for you");
-  passwordConditions();
-}
-
-// Runs the passwordconditions criteria to see if they were met
 function passwordConditions() {
-  oneOfEachCharacter = "";
-  passwordCriteriaReq = "";
+    oneOfEachCharacter = "";
+    passwordCriteriaReq = "";
+  
+    console.log(passwordLength);
+  
 
-  console.log(passwordLength);
+  //Asks the user to confirm which set of characters they want for their random password
+    lowercase = confirm("Do you want lowercase characters 'a', 'b'...");
+    uppercase = confirm("Do you want uppercase characters 'A', 'B'...");
+    numbers = confirm("Do you want numbers '1', '2'...");
+    special = confirm("Do you want special text '$', '&'...");
 
-  //password criteria
+    if (!lowercase && !uppercase && !numbers && !special) {
+        alert("Please select at least ONE (1) of the criteria to generate a password for you");
+        passwordConditions();
+    }
+
+    //character set for lowcase
   if (lowercase) {
     userLowerCase = "abcdefghijklmnopqrstuvwxyz";
     passwordCriteriaReq += userLowerCase;
@@ -64,7 +62,7 @@ function passwordConditions() {
       userLowerCase[Math.floor(Math.random() * userLowerCase.length)];
       oneOfEachCharacter += firstString;
   }
-
+ //character set for uppercase
   if (uppercase) {
     userUpperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     passwordCriteriaReq += userUpperCase;
@@ -74,7 +72,7 @@ function passwordConditions() {
 
       oneOfEachCharacter += secondString;
   }
-
+ //character set for numbers
   if (numbers) {
     userNumbers = "0123456789";
     passwordCriteriaReq += userNumbers;
@@ -83,20 +81,42 @@ function passwordConditions() {
 
     oneOfEachCharacter += thirdString;
   }
-
+ //character set for special characters
   if (special) {
-    userSymbols = '!"#$%&()*+,-./:;<=>?@[]^_`{|}~';
+    userSymbols = '~!@#$%^&*()-_=+[{]};:,<.>/?';
     passwordCriteriaReq += userSymbols;
     var fourthString = "";
     fourthString += userSymbols[Math.floor(Math.random() * userSymbols.length)];
     oneOfEachCharacter += fourthString;
   }
-  console.log(passwordCriteriaReq);
-  return passwordCriteriaReq;
+    console.log(passwordCriteriaReq);
+    return passwordCriteriaReq;
 }
+
+// password generator 
+function randomSelector(length) {
+  var passLength = initalInput();
+
+  if (passLength >= 8 && passLength <= 128) {
+    output = passwordConditions();
+    let result = " ";
+    const charactersLength = output.length;
+    for (let i = 0; i < passLength - oneOfEachCharacter.length; i++) {
+      result += output.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result;
+  }
+}
+
+function generatePassword() {
+  finalPw = randomSelector(passwordLength) + oneOfEachCharacter;
+  return finalPw;
+};
+
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
+//aditional variables
 var lowercase;
 var uppercase;
 var numbers;
