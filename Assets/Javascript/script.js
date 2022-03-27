@@ -11,7 +11,32 @@ var numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 var special = ['@', '%', '+', '/', "'", '!', '#', '$', '^', '?', ':', ',', ')', '(', '}', '{', ']', '[', '~', '-', '_', '.'];
 
 
-// this function collects the information that the user has input to give the in password length
+// this function collects the users input information when prompted, parseInt is used to convert any strings to integers and formulate a password at the end
+function initalInput () {
+  passwordLength = parseInt (
+    prompt(
+      "Please select a length from your password that fits the criteria",
+      "Minimum Characters: 8 - Maximium Characters: 128",
+
+    ),
+    10
+  )
+};
+
+// this function works when a value that is non a number is input when asked about how many characters the user wants
+
+console.log(passwordLength);
+if (isNaN(passwordLength)) {
+  alert ("Only Use Numbers Please!");
+  initalInput();
+} else if (passwordLength < 8 || passwordLength > 128) {
+  alert("Choose a number from 8 to 128 to determine your password length please!");
+  initalInput();
+}
+console.log(passwordLength);
+return passwordLength;
+}
+
 
 // Write password to the #password input
 function writePassword() {
