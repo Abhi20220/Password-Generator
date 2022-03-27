@@ -10,6 +10,12 @@ function writePassword() {
 
 }
 
+//Asks the user to confirm which set of characters they want for their random password
+lowercase = confirm("Do you want lowercase characters 'a', 'b'...");
+uppercase = confirm("Do you want uppercase characters 'A', 'B'...");
+numbers = confirm("Do you want numbers '1', '2'...");
+special = confirm("Do you want special text '$', '&'...");
+
 
 //The below function collates the information that the user has input and it is stored within "password length"
 function initalInput() {
