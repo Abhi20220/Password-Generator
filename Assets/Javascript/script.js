@@ -8,7 +8,10 @@ var lowerCase = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm'
 
 var numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
-var special=['@', '%', '+', '/', "'", '!', '#', '$', '^', '?', ':', ',', ')', '(', '}', '{', ']', '[', '~', '-', '_', '.'];
+var special = ['@', '%', '+', '/', "'", '!', '#', '$', '^', '?', ':', ',', ')', '(', '}', '{', ']', '[', '~', '-', '_', '.'];
+
+
+// this function collects the information that the user has input to give the in password length
 
 // Write password to the #password input
 function writePassword() {
@@ -18,6 +21,12 @@ function writePassword() {
   passwordText.value = password;
 
 }
+
+// Added confirm prompts
+upperCase = confirm ("Do you want your password to contain uppercase characters 'A' 'B'..." );
+lowerCase = confirm ("Do you want your password to contain lowercase characters 'a' 'b'..." );
+numbers = confirm ("Do you want your password to contain numbers characters '1' '2'..." );
+special = confirm ("Do you want your password to contain special characters '$' '%'..." );
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
