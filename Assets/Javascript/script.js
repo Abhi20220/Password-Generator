@@ -37,6 +37,10 @@ console.log(passwordLength);
 return passwordLength;
 }
 
+function passwordCriteria () {
+  oneOfEachCharacter= "";
+  passwordCriteriaReq = "";
+}
 
 // Write password to the #password input
 function writePassword() {
@@ -47,11 +51,20 @@ function writePassword() {
 
 }
 
-// Added confirm prompts
+// Added confirm prompts which the user clicks on
 upperCase = confirm ("Do you want your password to contain uppercase characters 'A' 'B'..." );
 lowerCase = confirm ("Do you want your password to contain lowercase characters 'a' 'b'..." );
 numbers = confirm ("Do you want your password to contain numbers characters '1' '2'..." );
 special = confirm ("Do you want your password to contain special characters '$' '%'..." );
+
+
+// If the user does not confirm any of the password criteria prompts then the following function will occur
+if (!upperCase && !lowerCase && !numbers && !special) {
+  alert("To generate your password please satisfy at least ONE (1) password criteria!");
+  passwordCriteria ();
+
+}
+
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
