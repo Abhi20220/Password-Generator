@@ -24,7 +24,7 @@ function initalInput() {
       "Choose your password length",
       "Minimum: 8  -  Maximum: 128"
     ),
-    // 10
+   
   );
 
 //The below function tells us that if a user chooses a letter instead of number they will get this alert
@@ -39,6 +39,13 @@ function initalInput() {
   }
   console.log(passwordLength);
   return passwordLength;
+}
+
+
+// If the user does not select any criteria they will be alerted to choose at least one criteria
+if (!lowercase && !uppercase && !numbers && !special) {
+  alert("Please select at least ONE (1) of the criteria to generate a password for you");
+  passwordConditions();
 }
 
 // Runs the passwordconditions criteria to see if they were met
