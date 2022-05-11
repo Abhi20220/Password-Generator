@@ -1,8 +1,8 @@
-# Rock-Paper-Scissors
+# Password-Generator
 
 
 ## Website URL
-https://abhi20220.github.io/Rock-Paper-Scissors/
+https://abhi20220.github.io/Password-Generator/
 
 ## Goals
 I built this project because the client wanted to create a password generator that had: lowercase, uppercase, numbers and special characters. All within a range of 8 to 128 characters.
